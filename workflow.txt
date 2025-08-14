@@ -4,3 +4,6 @@
 - code written in template.py (use this template everytime)
 
 - workflow updated and git committed.
+
+- add code to logger
+- add code to exception
