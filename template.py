@@ -18,7 +18,7 @@ list_of_files = [
     f"src/entity/config_entity.py",
     f"src/static/__init__.py",
     f"src/loggings/__init__.py",
-    f"src/exception/__init__.py"
+    f"src/exception/__init__.py",
     "constants/config.yaml",
     "constants/params.yaml",
     "constants/schema.yaml",
