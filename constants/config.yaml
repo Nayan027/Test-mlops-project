@@ -1,0 +1,7 @@
+root_artifact: artifacts
+
+data_ingestion:
+  data_source: https://github.com/Nayan027/Datasets/blob/main/stud.csv
+
+  root_dir: artifacts/data_ingestion
+  local_store: artifacts/data_ingestion/raw_data.csv

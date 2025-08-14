@@ -4,7 +4,7 @@
 - code written in template.py (use this template everytime)
 - run template.py in terminal to create project structure
 
-- workflow updated and git committed.
+-workflow updated and git committed.
 
 - add code to logger
 - add code to exception
@@ -15,6 +15,18 @@
 
 
 - update most relevant codes as utilities for frequent use
+
+
+-workflow updated and git commit.
+
+
+- add path to config.yaml
+- write key:value in schema.yaml and params.yaml
+- add code to entity_config for Ingestion stage
+- add code to configurations/config.py for Ingestion stage
+- add code to Ingestion component
+- add code to pipeline/training.py and test the success of Ingestion stage
+- add "artifacts/" to .gitignore
 
 
 -workflow updated and git commit.
