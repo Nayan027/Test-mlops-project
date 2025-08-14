@@ -1,0 +1,6 @@
+- git cloned into local setup
+- venv created and activated
+- code written in setup.py
+- code written in template.py (use this template everytime)
+
+- workflow updated and git committed.
