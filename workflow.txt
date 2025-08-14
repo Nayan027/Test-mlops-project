@@ -2,8 +2,19 @@
 - venv created and activated
 - code written in setup.py
 - code written in template.py (use this template everytime)
+- run template.py in terminal to create project structure
 
 - workflow updated and git committed.
 
 - add code to logger
 - add code to exception
+- add libraries and modules to requirements.txt
+- run pip install requirements in terminal
+
+-workflow updated and git commit.
+
+
+- update most relevant codes as utilities for frequent use
+
+
+-workflow updated and git commit.
