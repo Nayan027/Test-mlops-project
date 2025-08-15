@@ -1,40 +1,68 @@
 from src.entity.config_entity import DataIngestionConfig
 import requests
 import os
-import pandas as pd
-from src.utils.common import create_directories
 
 
 
+
+
+# class IngestionClass:
+#     def __init__(self, config: DataIngestionConfig):
+#         self.config=config
+
+
+#     def download_url_data(self):
+        
+# # store configurations into local variables for ease in code
+#         url = self.config.data_source
+#         local = self.config.local_store
+
+# # Convert GitHub HTML link to raw link if necessary
+#         if "github.com" in url and "/blob/" in url:
+#             url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+
+#         # check if file already exist
+#         if os.path.exists(local):
+#             print("File already exists. Skipping download.")
+
+#         # Download only if file doesn't already exist   
+#         else:
+#             response = requests.get(url)
+#             response.raise_for_status()  # Raise error if download failed
+
+#             with open(local, "wb") as f:  # write in binary mode
+#                 f.write(response.content)
+
+#             print(f"CSV file downloaded and saved to: {local}")
+
+
+
+
+
+
+'''Here i tried to write the entire code myself by simply understanding it.'''
 
 class IngestionClass:
     def __init__(self, config: DataIngestionConfig):
-        self.config=config
-
+        self.config = config
 
     def download_url_data(self):
-        # Convert GitHub HTML link to raw link if necessary
         url = self.config.data_source
-        local = self.config.local_store
+
+        local_data = self.config.local_store
+
 
         if "github.com" in url and "/blob/" in url:
-            url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+            url=url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+        
+        if os.path.exists(local_data):
+            print("Local data file already exists! Skipped downloading again.")
 
-        # Download only if file doesn't already exist
-        if not os.path.exists(local):
-            response = requests.get(url)
-            response.raise_for_status()  # Raise error if download failed
-
-            with open(local, "wb") as f:
-                f.write(response.content)
-
-            print(f"CSV file downloaded and saved to: {local}")
         else:
-            print("File already exists. Skipping download.")
+            response=requests.get(url)
+            response.raise_for_status()
 
-        # Read CSV from saved file
-        df = pd.read_csv(local)
-        print("CSV file loaded successfully:")
+            with open(local_data,"wb") as file:
+                file.write(response.content)
 
-        df.to_csv(local, index=False)
-        print(f"CSV file saved to: {local}")
+            print("Local data file downloaded successfully!!!")

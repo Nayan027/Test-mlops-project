@@ -64,3 +64,4 @@ def load_from_json(json_path: Path) -> ConfigBox:
         raise CustomException(e, sys)
 
 
+
