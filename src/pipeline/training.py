@@ -3,7 +3,7 @@ from src.configurations.config import ConfigManager
 from src.components.data_ingestion import IngestionClass
 from src.components.data_validation import ValidationClass
 from src.components.data_transformation import DataTransformation
-# from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerClass
 # from src.components.model_evaluation import ModelEvaluation
 from pathlib import Path
 
@@ -41,13 +41,13 @@ class DataTransformationTrainingPipeline:
             raise Exception("Your data schema is not valid")
 
 
-# # ========== Stage 4 ==========
-# class ModelTrainerTrainingPipeline:
-#     def main(self):
-#         config = ConfigManager()
-#         model_trainer_config = config.get_model_trainer_config()
-#         model_trainer = ModelTrainer(config=model_trainer_config)
-#         model_trainer.train()
+# ========== Stage 4 ==========
+class ModelTrainerTrainingPipeline:
+    def main(self):
+        config = ConfigManager()
+        model_trainer_config = config.get_model_trainer_config()
+        model_trainer = ModelTrainerClass(config=model_trainer_config)
+        model_trainer.model_training()
 
 
 # # ========== Stage 5 ==========
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 #     loggings.info(">>>>> Data Transformation stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Model Trainer stage started <<<<<")
-#     ModelTrainerTrainingPipeline().main()
+    ModelTrainerTrainingPipeline().main()
 #     loggings.info(">>>>> Model Trainer stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Model Evaluation stage started <<<<<")

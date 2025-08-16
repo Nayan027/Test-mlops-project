@@ -29,3 +29,18 @@ class TransformationConfig:
     test_data_path: Path
 
     split_ratio: float
+
+
+
+
+@dataclass 
+class ModelTrainerConfig:
+    train_data_path: Path
+    test_data_path: Path
+
+    target_column: str
+
+    root_dir: Path
+    l1_ratio: float
+    alpha: float
+    model_path: Path

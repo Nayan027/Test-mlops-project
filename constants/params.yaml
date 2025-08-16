@@ -1,2 +1,6 @@
 
 SPLIT_RATIO: 0.50
+
+ELASTICNET:
+  l1_ratio: 0.1
+  alpha: 0.25

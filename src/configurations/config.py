@@ -1,6 +1,9 @@
 from src.static import *
 from src.utils.common import read_yaml, create_directories
-from src.entity.config_entity import DataIngestionConfig, DataValidationConfig, TransformationConfig
+from src.entity.config_entity import (DataIngestionConfig, 
+                                      DataValidationConfig, 
+                                      TransformationConfig,
+                                      ModelTrainerConfig)
 
 class ConfigManager:
     def __init__(self,
@@ -69,3 +72,24 @@ class ConfigManager:
         )
 
         return transformation_config_object
+
+
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.ELASTICNET
+        schema = self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        model_trainer_config_object = ModelTrainerConfig(
+            train_data_path = config.train_data_path,
+            test_data_path = config.test_data_path,
+            root_dir = config.root_dir,
+            model_path = config.model_path, 
+            target_column = schema.name,
+            l1_ratio = params.l1_ratio,
+            alpha = params.alpha
+        )
+
+        return model_trainer_config_object

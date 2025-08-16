@@ -1,7 +1,7 @@
 root_artifact: artifacts
 
 data_ingestion:
-  data_source: https://github.com/Nayan027/Datasets/blob/main/stud.csv
+  data_source: https://github.com/Nayan027/Datasets/blob/main/winequality-red.csv
 
   root_dir: artifacts/data_ingestion
   local_store: artifacts/data_ingestion/raw_data.csv
@@ -21,3 +21,12 @@ data_transformation:
   root_dir: artifacts/data_transformation
   train_data_path: artifacts/data_transformation/train.csv
   test_data_path: artifacts/data_transformation/test.csv
+
+
+
+model_trainer:
+  train_data_path: artifacts/data_transformation/train.csv
+  test_data_path: artifacts/data_transformation/test.csv
+
+  root_dir: artifacts/model_trainer
+  model_path: artifacts/model_trainer/model.joblib 

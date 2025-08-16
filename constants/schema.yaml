@@ -1,13 +1,17 @@
 COLUMNS:
-  gender: object
-  race_ethnicity: object
-  parental_level_of_education: object
-  lunch: object
-  test_preparation_course: object
-  math_score: int64 
-  reading_score: int64
+  fixed acidity: float64
+  volatile acidity: float64
+  citric acid: float64
+  residual sugar: float64
+  chlorides: float64
+  free sulfur dioxide: float64
+  total sulfur dioxide: float64
+  density: float64
+  pH: float64
+  sulphates: float64
+  alcohol: float64
+  quality: int64
 
-  writing_score: int64      #target col included in columns for data validation step.
 
-TARGET_COL: 
-  writing_score: int64 
+TARGET_COLUMN:
+  name: quality
