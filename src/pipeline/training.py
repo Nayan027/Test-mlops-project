@@ -1,7 +1,7 @@
 # from src import loggings
 from src.configurations.config import ConfigManager
 from src.components.data_ingestion import IngestionClass
-# from src.components.data_validation import DataValiadtion
+from src.components.data_validation import ValidationClass
 # from src.components.data_transformation import DataTransformation
 # from src.components.model_trainer import ModelTrainer
 # from src.components.model_evaluation import ModelEvaluation
@@ -18,12 +18,12 @@ class DataIngestionTrainingPipeline:
 
 
 # # ========== Stage 2 ==========
-# class DataValidationTrainingPipeline:
-#     def main(self):
-#         config = ConfigManager()
-#         data_validation_config = config.get_data_validation_config()
-#         data_validation = DataValiadtion(config=data_validation_config)
-#         data_validation.validate_all_columns()
+class DataValidationTrainingPipeline:
+    def main(self):
+        config = ConfigManager()
+        data_validation_config = config.get_validation_config()
+        data_validation = ValidationClass(config=data_validation_config)
+        data_validation.validate_columns()
 
 
 # # ========== Stage 3 ==========
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     # loggings.info(">>>>> Data Ingestion stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Data Validation stage started <<<<<")
-#     DataValidationTrainingPipeline().main()
+    DataValidationTrainingPipeline().main()
 #     loggings.info(">>>>> Data Validation stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Data Transformation stage started <<<<<")

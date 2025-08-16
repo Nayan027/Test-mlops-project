@@ -7,3 +7,13 @@ class DataIngestionConfig:
 
     root_dir: Path
     local_store: Path
+
+
+@dataclass
+class DataValidationConfig:
+    local_data: Path
+
+    all_schema: dict
+    
+    root_dir: Path
+    status_file: str

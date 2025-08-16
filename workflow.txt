@@ -20,7 +20,7 @@
 -workflow updated and git commit.
 
 
-- add path to config.yaml
+- add path to config.yaml for Ingestion stage
 - write key:value in schema.yaml and params.yaml
 - add code to entity_config for Ingestion stage
 - add code to configurations/config.py for Ingestion stage
@@ -30,3 +30,12 @@
 
 
 -workflow updated and git commit.
+
+
+- add path to config.yaml for Validation stage
+- write column names in schema.yaml 
+- add code to entity_config for Validation stage
+- add code to configurations/config.py for Validation stage
+- add code to Validation component
+- add code to pipeline/training.py and test the success of Validation stage
+- add "artifacts/" to .gitignore

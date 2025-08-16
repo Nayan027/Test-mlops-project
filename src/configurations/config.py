@@ -1,6 +1,6 @@
 from src.static import *
 from src.utils.common import read_yaml, create_directories
-from src.entity.config_entity import DataIngestionConfig
+from src.entity.config_entity import DataIngestionConfig, DataValidationConfig
 
 class ConfigManager:
     def __init__(self,
@@ -30,3 +30,22 @@ class ConfigManager:
         )
 
         return ingestion_config_object
+    
+
+
+    def get_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema
+
+        create_directories([config.root_dir])
+
+        validation_config_object = DataValidationConfig(
+            local_data= config.local_data, 
+
+            all_schema= schema.COLUMNS, 
+            
+            root_dir= config.root_dir, 
+            status_file= config.status_file
+        )
+
+        return validation_config_object
