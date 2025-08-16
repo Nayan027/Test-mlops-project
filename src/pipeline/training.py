@@ -2,7 +2,7 @@
 from src.configurations.config import ConfigManager
 from src.components.data_ingestion import IngestionClass
 from src.components.data_validation import ValidationClass
-# from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformation
 # from src.components.model_trainer import ModelTrainer
 # from src.components.model_evaluation import ModelEvaluation
 from pathlib import Path
@@ -27,18 +27,18 @@ class DataValidationTrainingPipeline:
 
 
 # # ========== Stage 3 ==========
-# class DataTransformationTrainingPipeline:
-#     def main(self):
-#         with open(Path("artifacts/data_validation/status.txt"), "r") as f:
-#             status = f.read().split(" ")[-1]
+class DataTransformationTrainingPipeline:
+    def main(self):
+        with open(Path("artifacts/data_validation/status_file.txt"), "r") as f:
+            status = f.read().strip()
 
-#         if status == "True":
-#             config = ConfigManager()
-#             data_transformation_config = config.get_data_transformation_config()
-#             data_transformation = DataTransformation(config=data_transformation_config)
-#             data_transformation.train_test_spliting()
-#         else:
-#             raise Exception("Your data schema is not valid")
+        if "True" in status:
+            config = ConfigManager()
+            data_transformation_config = config.get_transformation_config()
+            data_transformation = DataTransformation(config=data_transformation_config)
+            data_transformation.split_data()
+        else:
+            raise Exception("Your data schema is not valid")
 
 
 # # ========== Stage 4 ==========
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 #     loggings.info(">>>>> Data Validation stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Data Transformation stage started <<<<<")
-#     DataTransformationTrainingPipeline().main()
+    DataTransformationTrainingPipeline().main()
 #     loggings.info(">>>>> Data Transformation stage completed <<<<<\n")
 
 #     loggings.info(">>>>> Model Trainer stage started <<<<<")

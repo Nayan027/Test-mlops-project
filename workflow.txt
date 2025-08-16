@@ -6,6 +6,7 @@
 
 -workflow updated and git committed.
 
+
 - add code to logger
 - add code to exception
 - add libraries and modules to requirements.txt
@@ -15,7 +16,6 @@
 
 
 - update most relevant codes as utilities for frequent use
-
 
 -workflow updated and git commit.
 
@@ -28,7 +28,6 @@
 - add code to pipeline/training.py and test the success of Ingestion stage
 - add "artifacts/" to .gitignore
 
-
 -workflow updated and git commit.
 
 
@@ -38,4 +37,15 @@
 - add code to configurations/config.py for Validation stage
 - add code to Validation component
 - add code to pipeline/training.py and test the success of Validation stage
+- add "artifacts/" to .gitignore
+
+-workflow updated and git commit.
+
+
+- add path to config.yaml for Transformation stage
+- write split_ratio in params.yaml 
+- add code to entity_config for Transformation stage
+- add code to configurations/config.py for Transformation stage
+- add code to Transformation component
+- add code to pipeline/training.py and test the success of Transformation stage
 - add "artifacts/" to .gitignore

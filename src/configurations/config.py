@@ -1,6 +1,6 @@
 from src.static import *
 from src.utils.common import read_yaml, create_directories
-from src.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from src.entity.config_entity import DataIngestionConfig, DataValidationConfig, TransformationConfig
 
 class ConfigManager:
     def __init__(self,
@@ -49,3 +49,23 @@ class ConfigManager:
         )
 
         return validation_config_object
+    
+
+
+    def get_transformation_config(self) -> TransformationConfig:
+        config = self.config.data_transformation
+        split_ratio = self.params.SPLIT_RATIO
+
+        create_directories([config.root_dir])
+
+        transformation_config_object = TransformationConfig(
+            local_data = config.local_data,
+            root_dir = config.root_dir,
+
+            train_data_path = config.train_data_path,
+            test_data_path = config.test_data_path,
+            
+            split_ratio=split_ratio 
+        )
+
+        return transformation_config_object

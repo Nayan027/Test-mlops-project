@@ -17,3 +17,15 @@ class DataValidationConfig:
     
     root_dir: Path
     status_file: str
+
+
+
+@dataclass
+class TransformationConfig:
+    local_data: Path
+    root_dir: Path
+    
+    train_data_path: Path
+    test_data_path: Path
+
+    split_ratio: float
